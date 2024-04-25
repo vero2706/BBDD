@@ -18,7 +18,8 @@ select * from clientes c NATURAL JOIN  pedidos p;
 
 /* Nombre clientes y nombre de productos comprados. Realizar sin JOIN, con INNER JOIN y con NATURAL JOIN.*/
 select c.NombreCliente, p.Nombre from clientes c, productos p, pedidos pe, detallePedidos de where c.CodigoCliente=pe.CodigoCliente and pe.CodigoPedido=de.CodigoPedido and de.CodigoProducto=p.CodigoProducto;
-select c.NombreCliente from clientes c INNER JOIN pedidos pe on c.CodigoCliente=pe.CodigoCliente INNER JOIN detallePedidos de on pe.CodigoPedido=de.CodigoPedido INNER JOIN productos p on de.CodigoProducto=p.CodigoProducto;
+select c.NombreCliente from clientes c INNER JOIN pedidos pe on c.CodigoCliente=pe.CodigoCliente INNER JOIN detallePedidos de on pe.CodigoPedido=de.CodigoPedido 
+INNER JOIN productos p on de.CodigoProducto=p.CodigoProducto;
 select c.NombreCLiente, p.Nombre from clientes c NATURAL JOIN pedidos pe NATURAL JOIN detallePedidos NATURAL JOIN productos AS pr;
 -- Seleccionar todos los pedidos que han realizado los clientes con el nombre 'Tendo%' Realizar la consulta con NATURAL JOIN e Inner Join
 -- INNER JOIN
